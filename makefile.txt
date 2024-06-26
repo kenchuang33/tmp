@@ -1,0 +1,22 @@
+# 定義變數
+CXX = g++
+CXXFLAGS = -Wall
+TARGET = main
+OBJS = main.o helloworld.o
+
+# 編譯目標
+all $(TARGET)
+
+# 編譯規則
+$(TARGET) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+main.o main.cpp helloworld.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
+
+helloworld.o helloworld.cpp helloworld.h
+	$(CXX) $(CXXFLAGS) -c helloworld.cpp
+
+# 清理規則
+clean
+	rm -f $(TARGET) $(OBJS)
